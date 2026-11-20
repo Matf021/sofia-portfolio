@@ -1,6 +1,7 @@
 import ProjectCard from "@/components/ProjectCard";
 import PortfolioWordmark from "@/components/PortfolioWordmark";
 import { projects } from "@/data/projects";
+import AboutSection from "@/components/AboutSection";
 
 export default function Home() {
   return (
@@ -22,44 +23,7 @@ export default function Home() {
       </section>
 
       {/* INTRODUCTION */}
-      <section
-        id="sobre-mi"
-        className="mx-auto grid min-h-[80vh] max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:px-12"
-      >
-        <div>
-          <p className="mb-5 text-2xl text-burgundy">
-            ¡Hola!
-          </p>
-
-          <h2 className="text-5xl font-light md:text-7xl">
-            Bienvenidos...
-          </h2>
-        </div>
-
-        <div className="space-y-6 text-lg leading-relaxed">
-          <p className="text-2xl">
-            Soy Sofía Gutiérrez Bohórquez.
-            <br />
-            Diseñadora industrial y diseñadora
-            de productos.
-          </p>
-
-          <p>
-            Me apasiona convertir ideas en realidad,
-            explorar nuevas formas y crear experiencias
-            a través del diseño. Disfruto experimentar
-            con materiales, desafiar lo convencional y
-            encontrar nuevas maneras de expresar ideas.
-          </p>
-
-          <p>
-            Soy curiosa, creativa y determinada.
-            Me motivan los retos, aprender constantemente
-            y salir de mi zona de confort.
-          </p>
-        </div>
-      </section>
-
+      <AboutSection />
 
       {/* PROJECTS */}
       <section
