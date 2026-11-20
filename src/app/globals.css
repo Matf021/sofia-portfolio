@@ -205,3 +205,45 @@ body {
     transition: none;
   }
 }
+
+/* ====================================
+   Light Laboratory Controls
+   ==================================== */
+
+.light-slider {
+  appearance: none;
+  -webkit-appearance: none;
+
+  height: 4px;
+  border-radius: 999px;
+  outline-offset: 8px;
+}
+
+.light-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 18px;
+  height: 18px;
+
+  border: 3px solid #d6ae65;
+  border-radius: 50%;
+
+  background: #130e0c;
+  cursor: pointer;
+}
+
+.light-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+
+  border: 3px solid #d6ae65;
+  border-radius: 50%;
+
+  background: #130e0c;
+  cursor: pointer;
+}
+
+.light-slider:focus-visible {
+  outline: 2px solid #d6ae65;
+}
