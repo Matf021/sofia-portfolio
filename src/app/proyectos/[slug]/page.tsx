@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 import { caseStudies } from "@/data/case-studies";
 import LightLaboratory from "@/components/experiments/LightLaboratory";
+import { projectThemes } from "@/data/project-themes";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -50,19 +51,9 @@ export default async function ProjectPage({ params }: Props) {
         notFound();
     }
 
-    const isTextile = slug === "siestoteca";
-
-    const heroBackground = isTextile
-        ? "bg-[#35283F]"
-        : "bg-[#241915]";
-
-    const finalBackground = isTextile
-        ? "bg-[#30243A]"
-        : "bg-[#211915]";
-
-    const accentColor = isTextile
-        ? "text-[#D7B9EA]"
-        : "text-[#D6AE65]";
+    const theme = projectThemes[
+        slug as keyof typeof projectThemes
+    ];
 
     return (
         <main>
@@ -84,20 +75,20 @@ export default async function ProjectPage({ params }: Props) {
 
             {/* HERO */}
             <section
-                className={`${heroBackground} px-6 pb-16 pt-32 text-white md:px-12 md:pb-28`}
+                className={`${theme.heroBackground} px-6 pb-16 pt-32 text-white md:px-12 md:pb-28`}
             >
                 <div className="mx-auto max-w-7xl">
                     <ScrollReveal>
                         <div className="mb-10">
                             <p
-                                className={`mb-5 text-xs uppercase tracking-[0.25em] ${accentColor}`}
+                                className={`mb-5 text-xs uppercase tracking-[0.25em] ${theme.accentText}`}
                             >
                                 {project.category} / {project.period}
                             </p>
 
                             <h1 className="max-w-5xl text-6xl font-light tracking-tight md:text-8xl">
                                 {project.title}
-                                <span className="text-[#D6AE65]">.</span>
+                                <span className={theme.accentText}>.</span>
                             </h1>
 
                             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/70 md:text-base">
@@ -162,7 +153,9 @@ export default async function ProjectPage({ params }: Props) {
             </section>
 
             {/* PROCESS */}
-            <section className="bg-[#E5DFD7] px-6 py-24 md:px-12 lg:py-32">
+            <section
+                className={`${theme.processBackground} px-6 py-24 md:px-12 lg:py-32`}
+            >
                 <div className="mx-auto max-w-7xl">
                     <ScrollReveal>
                         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
@@ -249,16 +242,17 @@ export default async function ProjectPage({ params }: Props) {
 
             {/* FINAL PRODUCT */}
             <section
-                className={`${finalBackground} px-6 py-24 text-white md:px-12 lg:py-36`}
+                className={`${theme.finalBackground} px-6 py-24 text-white md:px-12 lg:py-36`}
             >
                 <div className="mx-auto max-w-7xl">
                     <ScrollReveal>
-                        <span className="text-xs tracking-[0.25em] text-[#D6AE65]">
+                        <span className="text-xs tracking-[0.25em] ${theme.accentText}">
                             03 / RESULTADO
                         </span>
 
                         <h2 className="mb-12 mt-5 max-w-4xl text-4xl font-light md:text-6xl">
                             {project.finalProduct}
+                            <span className={theme.accentText}>.</span>
                         </h2>
                     </ScrollReveal>
 
