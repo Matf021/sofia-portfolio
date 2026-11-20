@@ -50,6 +50,20 @@ export default async function ProjectPage({ params }: Props) {
         notFound();
     }
 
+    const isTextile = slug === "siestoteca";
+
+    const heroBackground = isTextile
+        ? "bg-[#35283F]"
+        : "bg-[#241915]";
+
+    const finalBackground = isTextile
+        ? "bg-[#30243A]"
+        : "bg-[#211915]";
+
+    const accentColor = isTextile
+        ? "text-[#D7B9EA]"
+        : "text-[#D6AE65]";
+
     return (
         <main>
             {/* HEADER */}
@@ -69,11 +83,15 @@ export default async function ProjectPage({ params }: Props) {
             </header>
 
             {/* HERO */}
-            <section className="bg-[#241915] px-6 pb-16 pt-32 text-white md:px-12 md:pb-28">
+            <section
+                className={`${heroBackground} px-6 pb-16 pt-32 text-white md:px-12 md:pb-28`}
+            >
                 <div className="mx-auto max-w-7xl">
                     <ScrollReveal>
                         <div className="mb-10">
-                            <p className="mb-5 text-xs uppercase tracking-[0.25em] text-[#D6AE65]">
+                            <p
+                                className={`mb-5 text-xs uppercase tracking-[0.25em] ${accentColor}`}
+                            >
                                 {project.category} / {project.period}
                             </p>
 
@@ -131,7 +149,7 @@ export default async function ProjectPage({ params }: Props) {
 
                             <div className="mt-10 border-t border-black/15 pt-6">
                                 <p className="text-sm text-muted">
-                                    Referencias técnicas:
+                                    {project.referenceLabel}
                                 </p>
 
                                 <p className="mt-2 text-lg">
@@ -180,12 +198,27 @@ export default async function ProjectPage({ params }: Props) {
                     <div className="mt-14 grid gap-10 md:grid-cols-2">
                         <ScrollReveal>
                             <h3 className="mb-4 text-lg font-medium text-burgundy">
-                                Exploración geométrica
+                                {project.processDetailHeading}
                             </h3>
 
                             <p className="leading-relaxed">
                                 {project.construction}
                             </p>
+
+
+                            {project.detailNotes.length > 0 && (
+                                <div className="mt-6 space-y-3">
+                                    {project.detailNotes.map((note) => (
+                                        <p
+                                            key={note}
+                                            className="text-sm leading-relaxed text-muted"
+                                        >
+                                            {note}
+                                        </p>
+                                    ))}
+                                </div>
+                            )}
+
                         </ScrollReveal>
 
                         <ScrollReveal delay={100}>
@@ -215,7 +248,9 @@ export default async function ProjectPage({ params }: Props) {
             )}
 
             {/* FINAL PRODUCT */}
-            <section className="bg-[#211915] px-6 py-24 text-white md:px-12 lg:py-36">
+            <section
+                className={`${finalBackground} px-6 py-24 text-white md:px-12 lg:py-36`}
+            >
                 <div className="mx-auto max-w-7xl">
                     <ScrollReveal>
                         <span className="text-xs tracking-[0.25em] text-[#D6AE65]">
