@@ -1,4 +1,4 @@
-
+import ProjectCard from "@/components/ProjectCard";
 import PortfolioWordmark from "@/components/PortfolioWordmark";
 import { projects } from "@/data/projects";
 
@@ -60,39 +60,29 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* PROJECTS */}
       <section
         id="proyectos"
-        className="mx-auto max-w-7xl px-6 py-24 md:px-12"
+        className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:pb-52"
       >
-        <h2 className="mb-16 text-center text-5xl font-light uppercase tracking-[0.15em] md:text-7xl">
-          Proyect<span className="text-burgundy">o</span>s
-        </h2>
+        <div className="mb-20 text-center">
+          <p className="mb-5 text-xs uppercase tracking-[0.3em] text-muted">
+            01 — 06
+          </p>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <h2 className="text-5xl font-light uppercase tracking-[0.15em] md:text-7xl">
+            PROYECT<span className="text-burgundy">O</span>S
+          </h2>
+        </div>
+
+        <div className="grid gap-x-8 gap-y-16 md:grid-cols-2 md:gap-y-28 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <article
+            <ProjectCard
               key={project.slug}
-              className="group flex min-h-72 flex-col justify-between border border-black/10 p-6 transition-colors duration-300 hover:bg-white/60"
-            >
-              <div className="flex justify-between text-sm text-muted">
-                <span>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <span>{project.year}</span>
-              </div>
-
-              <div>
-                <h3 className="mb-2 text-3xl font-light group-hover:text-burgundy">
-                  {project.title}
-                </h3>
-
-                <p className="text-muted">
-                  {project.category}
-                </p>
-              </div>
-            </article>
+              project={project}
+              index={index}
+            />
           ))}
         </div>
       </section>

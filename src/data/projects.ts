@@ -6,6 +6,7 @@ export const projects = [
     category: "Luminaria de mesa",
     year: "2023",
     accent: "gold",
+    image: "/images/projects/abrazo-de-lirio.png",
   },
   {
     slug: "siestoteca",
@@ -13,6 +14,7 @@ export const projects = [
     category: "Producto textil",
     year: "2024",
     accent: "burgundy",
+    image: "/images/projects/siestoteca.png",
   },
   {
     slug: "nudos-y-lazos",
@@ -20,6 +22,7 @@ export const projects = [
     category: "Mobiliario doméstico",
     year: "2023",
     accent: "gold",
+    image: "/images/projects/nudos-y-lazos.png",
   },
   {
     slug: "bluemetrics",
@@ -27,6 +30,7 @@ export const projects = [
     category: "Monitor oceanográfico",
     year: "2025",
     accent: "copper",
+    image: "/images/projects/bluemetrics.png",
   },
   {
     slug: "toycycles",
@@ -34,6 +38,7 @@ export const projects = [
     category: "Juguetes sostenibles",
     year: "2026",
     accent: "burgundy",
+    image: "/images/projects/toycycles.png",
   },
   {
     slug: "presencia-eterea",
@@ -41,5 +46,6 @@ export const projects = [
     category: "Luminaria de pared",
     year: "2026",
     accent: "copper",
+    image: "/images/projects/presencia-eterea.png",
   },
 ] as const;
