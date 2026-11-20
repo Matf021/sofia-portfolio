@@ -3,10 +3,11 @@
 
 :root {
   --background: #ededed;
-  --foreground: #171717;
+  --foreground: #111111;
 
-  --burgundy: #9b3e60;
-  --gold: #c7ac60;
+  --burgundy: #672039;
+  --rose: #a45d70;
+  --gold: #bfae72;
   --copper: #aa6843;
 
   --muted: #696969;
@@ -18,6 +19,7 @@
   --color-burgundy: var(--burgundy);
   --color-gold: var(--gold);
   --color-copper: var(--copper);
+  --color-muted: var(--muted);
 }
 
 html {
@@ -27,7 +29,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-urbanist), sans-serif;
 }
 
 ::selection {
@@ -35,8 +37,125 @@ body {
   color: white;
 }
 
+/* ====================================
+   Portfolio Cover / Wordmark
+   ==================================== */
+
+.portfolio-brand {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.portfolio-wordmark {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+
+  font-size: clamp(2.75rem, 13.5vw, 10rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.055em;
+
+  color: var(--foreground);
+  animation: wordmark-reveal 900ms ease-out both;
+}
+
+/* Burgundy P and gold rectangle */
+.portfolio-initial {
+  position: relative;
+  z-index: 0;
+  color: var(--burgundy);
+}
+
+.portfolio-initial::before {
+  content: "";
+  position: absolute;
+
+  z-index: -1;
+  left: -0.23em;
+  top: 0.06em;
+
+  width: 0.62em;
+  height: 0.98em;
+  border-radius: 0.025em;
+
+  background: var(--gold);
+
+  animation: block-reveal 850ms ease-out both;
+}
+
+/* The original muted pink i */
+.portfolio-accent-i {
+  color: var(--rose);
+}
+
+/* Designer signature */
+.portfolio-signature {
+  margin-top: 0.08em;
+  padding-right: 0.04em;
+
+  text-align: right;
+  font-size: clamp(0.75rem, 2.25vw, 1.8rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+
+  animation: signature-reveal 900ms 250ms ease-out both;
+}
+
+.portfolio-year {
+  white-space: nowrap;
+}
+
+/* ====================================
+   Opening Animations
+   ==================================== */
+
+@keyframes wordmark-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes block-reveal {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes signature-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .portfolio-wordmark,
+  .portfolio-initial::before,
+  .portfolio-signature {
+    animation: none;
   }
 }
