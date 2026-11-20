@@ -2,6 +2,7 @@ import ProjectCard from "@/components/ProjectCard";
 import PortfolioWordmark from "@/components/PortfolioWordmark";
 import { projects } from "@/data/projects";
 import AboutSection from "@/components/AboutSection";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
@@ -30,7 +31,7 @@ export default function Home() {
         id="proyectos"
         className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:pb-52"
       >
-        <div className="mb-20 text-center">
+        <ScrollReveal className="mb-20 text-center">
           <p className="mb-5 text-xs uppercase tracking-[0.3em] text-muted">
             01 — 06
           </p>
@@ -38,7 +39,7 @@ export default function Home() {
           <h2 className="text-5xl font-light uppercase tracking-[0.15em] md:text-7xl">
             PROYECT<span className="text-burgundy">O</span>S
           </h2>
-        </div>
+        </ScrollReveal>
 
         <div className="grid gap-x-8 gap-y-16 md:grid-cols-2 md:gap-y-28 lg:grid-cols-3">
           {projects.map((project, index) => (
